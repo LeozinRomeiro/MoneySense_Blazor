@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MoneySense.Core.Handler
+namespace MoneySense.Core.Common
 {
-    public interface ITransactionHandler
+    public interface IEndpoint
     {
-
+        static abstract void Map(IEndpointRouteBuilder app);
     }
 }

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace MoneySense.Core.Requests.Transactions
 {
-    public class GetByPeriodTransactionRequest : Request
+    public class GetByPeriodTransactionsRequest : PagedRequest
     {
-        public DateTime? StarDate { get; set; }
+        public DateTime? StartDate { get; set; }
         public DateTime? EndDate { get; set; }
     }
 }

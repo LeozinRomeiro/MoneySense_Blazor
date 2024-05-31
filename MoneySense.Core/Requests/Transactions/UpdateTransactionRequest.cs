@@ -1,5 +1,4 @@
 ﻿using MoneySense.Core.Enums;
-using MoneySense.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -9,19 +8,23 @@ using System.Threading.Tasks;
 
 namespace MoneySense.Core.Requests.Transactions
 {
-    public class CreateTransactionRequest : Request
+    public class UpdateTransactionRequest : Request
     {
-        [Required(ErrorMessage = "Titulo invalido")]
+        public long Id { get; set; }
+
+        [Required(ErrorMessage = "Título inválido")]
         public string Title { get; set; } = string.Empty;
+
+        [Required(ErrorMessage = "Tipo inválido")]
+        public ETransactionType Type { get; set; }
 
         [Required(ErrorMessage = "Valor inválido")]
         public decimal Amount { get; set; }
 
-        [Required(ErrorMessage = "Tipo invalido")]
-        public ETransactionType Type { get; set; } = ETransactionType.Withdraw;
         [Required(ErrorMessage = "Categoria inválida")]
         public long CategoryId { get; set; }
-        [Required(ErrorMessage = "Data inválida")]  
+
+        [Required(ErrorMessage = "Data inválida")]
         public DateTime? PaidOrReceivedAt { get; set; }
     }
 }

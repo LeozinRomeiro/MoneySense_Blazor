@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace MoneySense.Core.Requests.Transactions
 {
-    internal class DeleteTransactionRequest
+    public class DeleteTransactionRequest : Request
     {
+        public long Id { get; set; }
     }
 }

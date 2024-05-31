@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace MoneySense.Core.Requests.Transactions
 {
-    internal class GetByIdTransactionRequest
+    public class GetByIdTransactionRequest : Request
     {
+        public long Id { get; set; }
     }
 }
