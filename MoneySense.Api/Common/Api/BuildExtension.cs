@@ -5,13 +5,13 @@ using MoneySense.Api.Handlers;
 using MoneySense.Core.Handler;
 using MoneySense.Core;
 
-namespace MoneySense.Api.Common
+namespace MoneySense.Api.Common.Api
 {
     public static class BuildExtension
     {
         public static void AddConfiguration(this WebApplicationBuilder builder)
         {
-            ApiConfiguration.ConnectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? string.Empty;
+            Configuration.ConnectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? string.Empty;
             Configuration.BackendUrl = builder.Configuration.GetValue<string>("BackendUrl") ?? string.Empty;
             Configuration.FrontendUrl = builder.Configuration.GetValue<string>("FrontendUrl") ?? string.Empty;
         }
@@ -32,7 +32,7 @@ namespace MoneySense.Api.Common
                 .AddDbContext<AppDbContext>(
                     x =>
                     {
-                        x.UseSqlServer(ApiConfiguration.ConnectionString);
+                        x.UseSqlServer(Configuration.ConnectionString);
                     });
         }
 

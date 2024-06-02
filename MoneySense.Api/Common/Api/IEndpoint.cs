@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MoneySense.Core.Common
+namespace MoneySense.Api.Common.Api
 {
     public interface IEndpoint
     {

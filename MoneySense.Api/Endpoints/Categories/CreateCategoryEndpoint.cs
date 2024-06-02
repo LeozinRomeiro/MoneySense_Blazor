@@ -1,4 +1,4 @@
-﻿using MoneySense.Core.Common;
+﻿using MoneySense.Api.Common.Api;
 using MoneySense.Core.Handler;
 using MoneySense.Core.Models;
 using MoneySense.Core.Requests.Categories;
@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MoneySense.Core.Endpoints.Categories
+namespace MoneySense.Api.Endpoints.Categories
 {
     public class CreateCategoryEndpoint : IEndpoint
     {

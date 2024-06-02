@@ -1,4 +1,7 @@
-﻿using System;
+﻿using MoneySense.Api.Common.Api;
+using MoneySense.Api.Endpoints.Categories;
+using MoneySense.Api.Endpoints.Transactions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -31,7 +34,7 @@ namespace MoneySense.Core.Endpoints
                 .MapEndpoint<UpdateTransactionEndpoint>()
                 .MapEndpoint<DeleteTransactionEndpoint>()
                 .MapEndpoint<GetTransactionByIdEndpoint>()
-                .MapEndpoint<GetTransactionsByPeriodEndpoint>();
+                .MapEndpoint<GetByPeriodTransactionsEndpoint>();
         }
 
         private static IEndpointRouteBuilder MapEndpoint<TEndpoint>(this IEndpointRouteBuilder app)

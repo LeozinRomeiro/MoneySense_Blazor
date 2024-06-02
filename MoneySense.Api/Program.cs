@@ -1,18 +1,26 @@
 using Microsoft.EntityFrameworkCore;
+using MoneySense.Api;
+using MoneySense.Api.Common.Api;
 using MoneySense.Api.Data;
 using MoneySense.Api.Handlers;
+using MoneySense.Core.Endpoints;
 using MoneySense.Core.Handler;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.AddConfiguration();
+builder.AddDataContexts();
+builder.AddCrossOrigin();
+builder.AddDocumentation();
+builder.AddServices();
+
 var app = builder.Build();
+if (app.Environment.IsDevelopment())
+{
+    app.ConfigureDevEnvironment();
+}
 
-const string connectionString = "Server=localhost,1433;Database=DataTemTrampo;User ID=sa;Password=Leoadmin32@#$;Trusted_Connection=False;TrustServerCertificate=True;";
-
-builder.Services.AddDbContext<AppDbContext>(x=>x.UseSqlServer(connectionString));
-
-builder.Services.AddTransient<ICategoryHandler, CategoryHandler>();
-builder.Services.AddTransient<ITransactionHandler, TransactionHandler>();
-
+app.UseCors(ApiConfiguration.CorsPolicyName);
 app.MapEndpoints();
 
 app.Run();
